@@ -26,4 +26,9 @@ public class StudentServiceImpl implements StudentService {
         stdDto.setHouse(savedStudents.getHouse());
         return stdDto;
     }
+
+    @Override
+    public void deleteStudent(long studentId) {
+        studentEntityRepository.deleteById(studentId);
+    }
 }
