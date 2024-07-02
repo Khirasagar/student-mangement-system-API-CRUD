@@ -14,11 +14,16 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void addStudent(StudentDto dto) {
+    public StudentDto addStudent(StudentDto dto) {
         StudentEntity entity = new StudentEntity();
         entity.setName(dto.getName());
         entity.setHouse(dto.getHouse());
-        studentEntityRepository.save(entity);
+        StudentEntity savedStudents = studentEntityRepository.save(entity);
 
+        StudentDto stdDto = new StudentDto();
+        stdDto.setId(savedStudents.getId());
+        stdDto.setName(savedStudents.getName());
+        stdDto.setHouse(savedStudents.getHouse());
+        return stdDto;
     }
 }
