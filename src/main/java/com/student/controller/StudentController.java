@@ -24,6 +24,6 @@ public class StudentController {
     @DeleteMapping("/deleteStudent")
     public ResponseEntity<String> deleteStudent(@RequestParam long studentId){
         std.deleteStudent(studentId);
-        return new ResponseEntity<>("Record deleted successfully!",HttpStatus.OK);
+        return new ResponseEntity<> ("Record deleted successfully!",HttpStatus.OK);
     }
 }
